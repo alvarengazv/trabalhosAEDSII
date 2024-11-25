@@ -6,8 +6,17 @@
 #include <vector>
 #include <chrono>
 #include <algorithm>
-// #include "avl.hpp"
+#include "avl.hpp"
 #include "binaryTree.hpp"
+
+struct Node {
+    string word;
+    Node* left;
+    Node* right;
+    int height;
+
+    Node(const string& w) : word(w), left(nullptr), right(nullptr), height(1) {}
+};
 
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h> // For _getch()
@@ -31,11 +40,8 @@
 
 using namespace std;
 
-// Function to load words into the dictionary (simulating large data volume)
-// void loadDictionary(AVLTree& tree, const vector<string>& words);
-void loadDictionary(BinaryTree& tree, const vector<string>& words);
+void loadDictionaryAVL(AVLTree& tree, const vector<string>& words);
+void loadDictionaryBinary(BinaryTree& tree, const vector<string>& words);
 
-// Test the dictionary with different volumes of data
-void testDictionary();
 
 #endif
