@@ -11,45 +11,34 @@
 
 using namespace std;
 
-// Node structure for BINARY Tree
-struct Node {
+struct NodeBinary {
     string word;
-    Node* left;
-    Node* right;
+    NodeBinary* left;
+    NodeBinary* right;
     int height;
 
-    Node(const string& w) : word(w), left(nullptr), right(nullptr), height(1) {}
+    NodeBinary(const string& w) : word(w), left(nullptr), right(nullptr), height(1) {}
 };
 
-// BINARY Tree class
 class BinaryTree {
-private:
-    Node* root;
+    private:
+        NodeBinary* root;
 
-    // Insert a word into the BINARY tree
-    Node* insert(Node* node, const string& word);
+        NodeBinary* insert(NodeBinary* NodeBinary, const string& word);
 
-    // Search for words with a given prefix
-    void autocomplete(Node* node, const string& prefix, vector<string>& suggestions);
+        void autocomplete(NodeBinary* NodeBinary, const string& prefix, vector<string>& suggestions);
 
-    // Helper function to print the tree
-    // void printTree(Node* node, string indent, bool last);
-    void printTree();
-    void printLevel(Node* node, int level, int maxLevel, int indentSpace, int levelWidth);
-    int getHeight(Node* node);
+        int getHeight(NodeBinary* NodeBinary);
 
-public:
-    BinaryTree() : root(nullptr) {}
+    public:
+        BinaryTree() : root(nullptr) {}
 
-    // Public insert method
-    void insert(const string& word);
+        void insert(const string& word);
 
-    // Public autocomplete method
-    vector<string> autocomplete(const string& prefix);
+        vector<string> autocomplete(const string& prefix);
 
-    vector<string> measureSearchTime(const string& prefix);
+        vector<string> measureSearchTime(const string& prefix);
 
-    void displayTree();
 };
 
 #endif
